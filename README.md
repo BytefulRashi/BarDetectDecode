@@ -1,55 +1,71 @@
-<h1>Barcode Decode and Detect</h1>
-Detect the barcode in an image using predefined kernel(Rule Based Approach) or Deep Learning models.
+# Barcode Decode and Detect
 
-To train DL model I have used 12-14 images, annoted them according to the requirement of problem statement. 
+This repository demonstrates barcode detection and decoding using both rule-based approaches with OpenCV and pyzbar, as well as deep learning methods with Mask-RCNN instance segmentation using the detectron2 framework.
 
-Dataset Link: https://drive.google.com/drive/folders/1bxoRNTp0St4h9tVkJSNQTb0ItwUYKbEo?usp=sharing
+## Dataset
 
-I have included some extra images for testing and validation.
+- The dataset used for training the deep learning model consists of 12-14 annotated images tailored to the project's requirements.
+- Additional images are included for testing and validation.
 
-Results: https://drive.google.com/drive/folders/1t6DE7tzg4OBtJyEK4AAcWFD3P6CiTgTj?usp=sharing
+[Dataset Link](https://drive.google.com/drive/folders/1bxoRNTp0St4h9tVkJSNQTb0ItwUYKbEo?usp=sharing)
 
-Switch to the given directory for code and detailed explanation.
-```
+## Results
+
+- Results of the detection and decoding are available in the following Google Drive folder:
+  [Results](https://drive.google.com/drive/folders/1t6DE7tzg4OBtJyEK4AAcWFD3P6CiTgTj?usp=sharing)
+
+To explore the code and detailed explanation, switch to the project directory:
+
+```bash
 cd {Directory name}
 ```
-<h2>Rule Based Approach: <a href = "https://github.com/jprakash-1/Barcode-Decode-and-Detect/tree/main/Barcode-Detection-and-Decoding">Link</a></h2>
-Built using OpenCv and pyzbar using hard-coded kernel functions. <br>
-<img src = "./Results/res1.jpg" height = 500px>
-<img src = "./Results/res2.jpg" height = 500px>
 
+## Rule Based Approach
 
-<h2>Deep Learning Approach for all the cases.</h2>
-To achieve the goal I have used Mask-RCNN Instance segmentation model using detectron2 framework. 
+A rule-based approach using OpenCV and pyzbar is implemented with hard-coded kernel functions.
 
-<h2>MRCNN No Barcode: <a href = "https://github.com/jprakash-1/Barcode-Decode-and-Detect/tree/main/MRCNN%20No%20Barcode">Link</a></h2></h2>
-Model create red bounding box around the object which doesn't have barcode visible.
-<img src = "./Results/res3.jpg" height = 500px>
-<img src = "./Results/res4.jpg" height = 500px>
+- [Rule Based Approach Repository](https://github.com/BytefulRashi/BarDetectDecode/tree/main/Barcode-Detection-and-Decoding)
 
-<h2>Bounding-Box-Around-All-Object <a href = "https://github.com/jprakash-1/Barcode-Decode-and-Detect/tree/main/Bouding-Box-Around-All-Object">Link</a></h2></h2>
-Detect all object and draw black bounding box around it.
-<img src = "./Results/res7.jpg" height = 500px>
-<img src = "./Results/res8.jpg" height = 500px>
+![Rule Based Approach Result 1](./Results/res1.jpg)
+![Rule Based Approach Result 2](./Results/res2.jpg)
 
+## Deep Learning Approach
 
-<h2>MRCNN-Complete-Or-Partial-Barcode <a href = "https://github.com/jprakash-1/Barcode-Decode-and-Detect/tree/main/MRCNN-Complete-Or-Partial-Barcode">Link</a></h2></h2>
-Model draw blue bounding box around complete visble barcode otherwise yellow bounding box.
-<img src = "./Results/res5.jpg" height = 500px>
-<img src = "./Results/res6.jpg" height = 500px>
+For deep learning-based detection, Mask-RCNN instance segmentation model is employed using detectron2.
 
+### MRCNN No Barcode
 
+- Detects objects without visible barcodes and outlines them with red bounding boxes.
 
-<h1>Result analysis: </h1>
-Since I have use very less data around 10-12 images in each case, We can observe from result that it is overfitting case. 
+- [MRCNN No Barcode Repository](https://github.com/BytefulRashi/BarDetectDecode/tree/main/MRCNN%20No%20Barcode)
 
-We can take actions to improve the result such as: 
-<ul>
-<li> Increase the number of data.
-<li> Data Augmentation it will help but only upto some extent.
-<li> Try experimenting with some other models.
-</ul>
+![MRCNN No Barcode Result 1](./Results/res3.jpg)
+![MRCNN No Barcode Result 2](./Results/res4.jpg)
 
-I have also look into some pretrained model for barcode detection but they are have dataset diffrent from the provided dataset, becasue of that dataset shift I avoided using those models. 
+### Bounding Box Around All Objects
 
-# Barcode-Reader
+- Detects all objects and draws black bounding boxes around them.
+
+- [Bounding Box Around All Object Repository](https://github.com/BytefulRashi/BarDetectDecode/tree/main/Bouding-Box-Around-All-Object)
+
+![Bounding Box Around All Objects Result 1](./Results/res7.jpg)
+![Bounding Box Around All Objects Result 2](./Results/res8.jpg)
+
+### MRCNN Complete or Partial Barcode
+
+- Draws blue bounding boxes around complete visible barcodes and yellow bounding boxes otherwise.
+
+- [MRCNN Complete or Partial Barcode Repository](https://github.com/BytefulRashi/BarDetectDecode/tree/main/MRCNN-Complete-Or-Partial-Barcode)
+
+![MRCNN Complete or Partial Barcode Result 1](./Results/res5.jpg)
+![MRCNN Complete or Partial Barcode Result 2](./Results/res6.jpg)
+
+## Result Analysis
+
+Given the small dataset size (10-12 images per case), the results indicate potential overfitting. To improve the model's performance, consider the following actions:
+
+- Increase the size and diversity of the dataset.
+- Apply data augmentation techniques to enhance generalization.
+- Experiment with alternative deep learning models suited for barcode detection.
+
+Pretrained models for barcode detection were considered but avoided due to dataset mismatch with the provided dataset.
